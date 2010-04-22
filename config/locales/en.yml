@@ -403,6 +403,8 @@ en:
   project_module_boards: Boards
   
   label_user: User
+  label_equipment: equipments
+  label_equipment_type: equipment type
   label_user_plural: Users
   label_user_new: New user
   label_user_anonymous: Anonymous
@@ -426,7 +428,7 @@ en:
   label_document_new: New document
   label_document_plural: Documents
   label_document_added: Document added
-  label_role: Role
+  _typelabel_role: Role
   label_role_plural: Roles
   label_role_new: New role
   label_role_and_permissions: Roles and permissions

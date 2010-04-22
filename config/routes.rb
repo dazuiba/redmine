@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :equipments
+  map.resources :equipment_types
+
   # Add your own custom routes here.
   # The priority is based upon order of creation: first created -> highest priority.
   
