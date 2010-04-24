@@ -15,6 +15,7 @@
 <% @equipment.each do |equipment| %>
   <tr>
     <td><%= link_to equipment.name, edit_equipment_path(equipment) %></td>
+    <td><%= equipment.content %></td>
     <td><%= User.current.login%></td>
     <td><%= format_time equipment.created_at %></td>
     <td><%= equipment.equipment_type&&equipment.equipment_type.name%></td>
