@@ -4,6 +4,8 @@
   <tr>
 		<td> name </td>
 		<td> created by </td>
+		<td> type </td>
+		<td> project </td>
 		<td> created at </td>
 		<td> updated at </td> 
 		<td> &nbsp;</td>        
@@ -12,11 +14,14 @@
 
 <% @equipment.each do |equipment| %>
   <tr>
-    <td><%= link_to 'Show', equipment %></td>
+    <td><%= link_to equipment.name, edit_equipment_path(equipment) %></td>
     <td><%= User.current.login%></td>
     <td><%= format_time equipment.created_at %></td>
+    <td><%= equipment.equipment_type&&equipment.equipment_type.name%></td>
+    <td><%= equipment.project&&equipment.project.name%></td>
+    <td><%= format_time equipment.created_at %></td>
     <td><%= format_time equipment.updated_at %></td>
-    <td><%= link_to 'Edit', edit_equipment_path(equipment) %></td>
+    <td><%= link_to 'History', history_equipment_path(equipment) %></td>
     <td><%= link_to 'Destroy', equipment, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

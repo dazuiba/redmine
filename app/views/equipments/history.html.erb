@@ -1,0 +1,26 @@
+<h3>back to equipment: <%= link_to @equipment.name, @equipment %> </h3>
+<h1>Listing history</h1>
+<table>
+  <tr>
+		<td> name </td>
+		<td> content </td>
+		<td> created by </td>
+		<td> type </td>
+		<td> project </td>
+		<td> created at </td>
+		<td> updated at </td> 
+  </tr>
+
+<% @versions.each do |equipment| %>
+  <tr>
+    <td><%= link_to equipment.name, edit_equipment_path(equipment) %></td>
+    <td><%= equipment.content%></td>
+    <td><%= User.current.login%></td>
+    <td><%= equipment.equipment_type_id%></td>
+    <td><%= equipment.project_id%></td>
+    <td><%= format_time equipment.updated_at %></td>
+  </tr>
+<% end %>
+</table>
+
+

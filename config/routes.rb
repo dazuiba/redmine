@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :equipments
+  map.resources :equipments, :member=>{:history=>:get}
   map.resources :equipment_types
 
   # Add your own custom routes here.

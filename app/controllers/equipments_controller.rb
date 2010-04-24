@@ -10,9 +10,17 @@ class EquipmentsController < ApplicationController
     end
   end
 
+  def history
+    @equipment = Equipment.find(params[:id])
+    @versions = @equipment.versions.find :all, 
+                                        :order => 'version DESC'
+
+    render :layout => false if request.xhr?
+  end
   # GET /equipment/1
   # GET /equipment/1.xml
   def show
+    return redirect_to :action=>:edit, :id=>params[:id]
     @equipment = Equipment.find(params[:id])
 
     respond_to do |format|
@@ -45,7 +53,7 @@ class EquipmentsController < ApplicationController
     respond_to do |format|
       if @equipment.save
         flash[:notice] = 'Equipment was successfully created.'
-        format.html { redirect_to(@equipment) }
+        format.html { redirect_to(equipments_path) }
         format.xml  { render :xml => @equipment, :status => :created, :location => @equipment }
       else
         format.html { render :action => "new" }
@@ -62,7 +70,7 @@ class EquipmentsController < ApplicationController
     respond_to do |format|
       if @equipment.update_attributes(params[:equipment])
         flash[:notice] = 'Equipment was successfully updated.'
-        format.html { redirect_to(@equipment) }
+        format.html { redirect_to(equipments_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

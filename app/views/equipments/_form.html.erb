@@ -1,5 +1,13 @@
-  <p><%= f.error_messages %>  </p>
+<p><%= f.error_messages %>  </p>
 <p>  name: <%= f.text_field :name%>
 </p>  
-<p>content: <%= f.text_area :content%>
+
+<p>  type: <%= f.select :equipment_type_id, EquipmentType.all.map{|e|[e.name, e.id]}%>
+</p>  
+
+<p>  project: <%= f.select :project_id, Project.all.map{|e|[e.name, e.id]}%>
+</p>  
+
+content:
+<p> <%= f.text_field :content%>
 </p>
