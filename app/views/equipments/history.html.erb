@@ -7,7 +7,6 @@
 		<td> created by </td>
 		<td> type </td>
 		<td> project </td>
-		<td> created at </td>
 		<td> updated at </td> 
   </tr>
 
@@ -16,8 +15,8 @@
     <td><%= link_to equipment.name, edit_equipment_path(equipment) %></td>
     <td><%= equipment.content%></td>
     <td><%= User.current.login%></td>
-    <td><%= equipment.equipment_type_id%></td>
-    <td><%= equipment.project_id%></td>
+    <td><%= show_history("EquipmentType",equipment.equipment_type_id)%></td>
+    <td><%= show_history("Project",equipment.project_id)%></td>
     <td><%= format_time equipment.updated_at %></td>
   </tr>
 <% end %>

@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :equipments, :member=>{:history=>:get}
   map.resources :equipment_types
+  map.resources :projects
 
   # Add your own custom routes here.
   # The priority is based upon order of creation: first created -> highest priority.

@@ -127,6 +127,7 @@ mail_handler_api_key:
 issue_list_default_columns:
   serialized: true
   default: 
+  - equipment
   - tracker
   - status
   - priority

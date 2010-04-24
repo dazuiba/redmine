@@ -70,7 +70,7 @@ class IssuesController < ApplicationController
       
       @issue_count = @query.issue_count
       @issue_pages = Paginator.new self, @issue_count, limit, params['page']
-      @issues = @query.issues(:include => [:assigned_to, :tracker, :priority, :category, :fixed_version],
+      @issues = @query.issues(:include => [:equipment, :assigned_to, :tracker, :priority, :category, :fixed_version],
                               :order => sort_clause, 
                               :offset => @issue_pages.current.offset, 
                               :limit => limit)
@@ -538,7 +538,7 @@ private
     end
   end
   
-  # Rescues an invalid query statement. Just in case...
+  # Re:cues an invalid query statement. Just in case...
   def query_statement_invalid(exception)
     logger.error "Query::StatementInvalid: #{exception.message}" if logger
     session.delete(:query)

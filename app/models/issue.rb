@@ -17,6 +17,7 @@
 
 class Issue < ActiveRecord::Base
   belongs_to :project
+  belongs_to :equipment
   belongs_to :tracker
   belongs_to :status, :class_name => 'IssueStatus', :foreign_key => 'status_id'
   belongs_to :author, :class_name => 'User', :foreign_key => 'author_id'
@@ -205,6 +206,7 @@ class Issue < ActiveRecord::Base
     assigned_to_id
     priority_id
     fixed_version_id
+    equipment_id
     subject
     description
     start_date
